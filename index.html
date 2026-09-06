@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quoridor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Background Elements -->
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
+    
+    <!-- App Container -->
+    <div id="app">
+        <!-- Main Menu Screen -->
+        <section id="screen-menu" class="screen active">
+            <h1 class="game-title">QUORIDOR</h1>
+            <div class="menu-options glass-panel">
+                <button id="btn-vs-computer" class="menu-btn primary">VS Computer</button>
+                <button id="btn-vs-friend" class="menu-btn secondary">VS Friend</button>
+            </div>
+            <div class="rules-hint">
+                <p>Reach the opposite side. Don't get trapped.</p>
+            </div>
+        </section>
+
+        <!-- Level Select Screen -->
+        <section id="screen-levels" class="screen">
+            <button class="btn-back">← Back</button>
+            <h2 class="screen-title" id="levels-title">Select Level</h2>
+            <div class="levels-grid" id="levels-grid">
+                <!-- Dynamically populated -->
+            </div>
+        </section>
+
+        <!-- Game Screen -->
+        <section id="screen-game" class="screen">
+            <div class="game-header">
+                <button class="btn-back" id="btn-quit-game">← Quit</button>
+                <div class="turn-indicator" id="turn-indicator">Player 1's Turn</div>
+                <button class="btn-icon" id="btn-restart">↻</button>
+            </div>
+            
+            <div class="game-layout">
+                <!-- Player 2 Info (Top / Left depending on layout) -->
+                <div class="player-card player2-card glass-panel" id="p2-card">
+                    <div class="player-avatar p2-color"></div>
+                    <div class="player-info">
+                        <div class="player-name" id="p2-name">Player 2</div>
+                        <div class="walls-left">Walls: <span id="p2-walls">10</span></div>
+                    </div>
+                </div>
+
+                <!-- The Board -->
+                <div class="board-container">
+                    <div id="board" class="board">
+                        <!-- Dynamically populated 17x17 grid -->
+                    </div>
+                </div>
+
+                <!-- Player 1 Info (Bottom / Right depending on layout) -->
+                <div class="player-card player1-card glass-panel active-turn" id="p1-card">
+                    <div class="player-avatar p1-color"></div>
+                    <div class="player-info">
+                        <div class="player-name" id="p1-name">Player 1</div>
+                        <div class="walls-left">Walls: <span id="p1-walls">10</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Win/Lose Modal -->
+        <div id="modal-overlay" class="modal-overlay hidden">
+            <div class="modal glass-panel">
+                <h2 id="modal-title">You Win!</h2>
+                <div class="score-display">
+                    <div class="stars" id="modal-stars">
+                        <span>★</span><span>★</span><span>★</span>
+                    </div>
+                    <p id="modal-score">Score: 1500</p>
+                </div>
+                <div class="modal-buttons">
+                    <button id="btn-modal-menu" class="menu-btn secondary">Menu</button>
+                    <button id="btn-modal-next" class="menu-btn primary">Next Level</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/levels.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/ai.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
